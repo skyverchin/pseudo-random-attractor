@@ -13,3 +13,11 @@
 ![image](https://user-images.githubusercontent.com/92204862/221368880-b1ad90d9-d3b5-4620-bf35-f34b8e345d2d.png)
 ![image](https://user-images.githubusercontent.com/92204862/221368894-227123a4-be20-4596-b8cd-2a5b6c19b567.png)
 ![image](https://user-images.githubusercontent.com/92204862/221368939-f715271a-2de9-4c28-bc1f-3a3dbc954315.png)
+
+Generation .stl file with randomly created 3d object by system of nonlinear equation, with Lyapunov exponent
+
+![230612423-9c5ba775-b706-436b-9a5c-8f88c3f884fe](https://github.com/skyverchin/pseudo-random-attractor/assets/92204862/6b68c66d-e457-488c-b7f1-bd574399cf0e)
+
+Example of use
+
+![230612837-ebb0fa31-2308-41af-a9c7-193e3ce58767](https://github.com/skyverchin/pseudo-random-attractor/assets/92204862/535b99cf-8786-47cc-ae4d-eeac40b42df6)
