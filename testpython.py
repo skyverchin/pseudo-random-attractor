@@ -1,19 +1,12 @@
 import math
-from operator import ixor
 import random as rnd
-#from PIL import Image, ImageDraw
-#import argparse
 import numpy as np
 import matplotlib.pyplot as plt
-#import matplotlib as mpl
 from scipy.integrate import odeint
 from mpl_toolkits.mplot3d import Axes3D
-
-#parser = argparse.ArgumentParser(description='Search for chaos.')
-##parser.add_argument('-i', dest='maxiterations' metavar='N', type=int,
-##            help='Maximum iterations.')
-
-#args = parser.parse_args()
+#from stl import mesh
+#from scipy.spatial import Delaunay
+import surf2stl
 
 MAXITERATIONS = 100000
 NEXAMPLES = 1000
@@ -117,33 +110,31 @@ def PlotAtractor(x,y,z):
     for i in range(MAXITERATIONS):
         if i > 100:
             #ax.scatter(x,y,z)
-            #plt.scatter(x,y,z)
-            
+            plt.scatter(x,y,z)
+
             #ax.plot(x,y,z)
-            plt.plot(x,y,z)
+            #plt.plot(x, y, z)
+            X, Y = np.meshgrid(x, y)
+            Z = np.meshgrid(z)                       
             plt.show()
+            surf2stl.write('result.stl', X, Y, Z)
+            
+            
+    #Something go wrong here ¯\_(ツ)_/¯, while use this code we use surf2stl(modified)
+    #for i in range(MAXITERATIONS):
+    #    if i > 100:
+    #        points = np.column_stack((np.array(x), np.array(y), np.array(z)))
+    #        triangles = Delaunay(points)
+
+    #        normal = np.cross(points[triangles.simplices[:, 1]] - points[triangles.simplices[:, 0]], points[triangles.simplices[:, 2]] - points[triangles.simplices[:, 0]])
+    #        normal /= np.linalg.norm(normal, axis=1).reshape(-1, 1)
+
+    #        surface = mesh.Mesh(np.zeros(len(triangles.simplices), dtype=mesh.Mesh.dtype))
+    #        for j, triangle in enumerate(triangles.simplices):
+    #            for k, point in enumerate(triangle):
+    #                surface.vectors[j][k] = points[point]
+    #            surface.normals[j] = normal[j]
+
+    #        surface.save('example.stl')
 
 CreatingAttractor()
-
-#def PlotAtractor(n,fx,fy,xmin,xmax,ymin,ymax,x,y):
-#    width, height = 500, 500
-#    image = Image.new("RGBA", (width, height))
-#    draw = ImageDraw.Draw(image)    
-#    for i in range(MAXITERATIONS):
-#        ix = width * (x[i] - xmin) / (xmax - xmin)
-#        iy = height * (y[i] - ymin) / (ymax - ymin)
-#        if i > 100:
-#            draw.point([ix, iy], fill="black")
-#    image.show()
-
-#------------------------
-
-#import random as rnd
-#from itertools import count
-
-#for i in count(0):
-#    sus = rnd.randint(1,10)
-#    print(" ")
-#    for j in range(sus):
-#        print("*")
-
